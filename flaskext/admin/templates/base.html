@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <script type="text/javascript" src="{{ url_for('admin.static', filename='js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('admin.static', filename='js/jeditable.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('admin.static', filename='js/jquery.contextMenu.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('admin.static', filename='js/index.js') }}"></script>
+    <link type="text/css" rel="stylesheet" media="all" href="{{ url_for('admin.static', filename='css/editor.css') }}" />
+    <link type="text/css" rel="stylesheet" media="all" href="{{ url_for('admin.static', filename='css/screen.css') }}" />
+    {% block head %}{% endblock %}
+    <title>addqd.com | {% block title %}администраторская часть{% endblock %}</title>
+</head>
+<body>
+{% if get_flashed_messages() %}
+    <fieldset class="messages">
+        <legend>Системные сообщения:</legend>
+        <ul>
+            {% for l,v in get_flashed_messages(with_categories=true) %}
+                <li class="messages-{{ l }}">{{ v|safe }}</li>
+            {% endfor %}
+        </ul>
+    </fieldset>
+{% endif %}
+{% block body %}{% endblock %}
+</body>
+</html>

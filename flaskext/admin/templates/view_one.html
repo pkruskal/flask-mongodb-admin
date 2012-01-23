@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}редактирование {{ m.__name__ }} | {{ item.__unicode__() }}{% endblock %}
+{% block body %}
+<div id="main">
+<fieldset>
+<legend>Меню</legend>
+<ul id="menu">
+    <li>
+        <a href="{{ url_for('admin.index') }}">Индекс</a>
+    </li>
+    <li>
+        <a href="{{ url_for('admin.list/model', model=m.__name__.lower()) }}">{{ m.__name__ }}</a>
+    </li>
+</ul>
+</fieldset>
+<fieldset>
+<legend>Редактирование модели {{ m.__name__ }}, объект  {{ item.__unicode__() }}: <span>
+    [<a style="color: #E60053" onclick="return confirm('Удалить \'{{ item.__unicode__()|safe }}\'? O_o');" href="{{ url_for('admin.delete', model=m.__name__.lower(), id=item.mongo_id) }}">удалить</a>],
+    [<a href="{{ url_for('admin.add/one', model=m.__name__.lower()) }}">добавить</a>]
+    </span>
+</legend>
+    <form id="form" action="" method="post" enctype="multipart/form-data" accept-charset="utf-8">
+        <table>
+            {% for field in form %}
+                <tr>
+                    <td width="20%">{{ field.label }}</td>
+                    <td width="80%">
+                    <div class="errors">
+                        {% for e in field.errors %}
+                            {{ e }}
+                        {% endfor %}
+                    </div>
+                    {{ field }}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><hr></td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Сохранить"></td>
+            </tr>
+        </table>
+    </form>
+</fieldset>
+</div>
+{% endblock %}

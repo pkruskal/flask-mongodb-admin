@@ -1,0 +1,208 @@
+/**
+ * Created by olebedev.ru
+ * User: olebedev
+ * Date: 09.07.11
+ * Time: 14:02
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block; }
+
+.untrack {
+  background: #6699cc; }
+
+html, body {
+  background: #f9f9f9;
+  color: #333333;
+  padding: 20px; }
+
+body {
+  font: 100 100% Helvetica, Arial, sans-serif;
+  position: absolute; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300; }
+
+h1 {
+  font-size: 3em;
+  font-weight: 100;
+  color: #333333;
+  text-align: left;
+  letter-spacing: 0;
+  line-height: 1em; }
+
+h2 {
+  font-size: 2em;
+  font-weight: 200;
+  color: #555555;
+  text-align: left;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.2em; }
+
+h3 {
+  font-size: 1.5em;
+  font-weight: 300;
+  color: #555555;
+  text-align: left;
+  letter-spacing: -0.03em; }
+
+p {
+  font-size: 1em;
+  font-weight: 200;
+  color: #737373;
+  text-align: left;
+  letter-spacing: 0;
+  margin-top: 0; }
+
+a {
+  color: #0066cc;
+  text-decoration: none; }
+  a:visited {
+    color: #004c99; }
+  a:focus {
+    color: #0099ff; }
+  a:hover {
+    color: #0099ff; }
+  a:active {
+    color: #bf00ff; }
+
+button:hover {
+  outline-style: none; }
+
+button::-moz-focus-inner {
+  border: none; }
+
+input[type="submit"]::-moz-focus-inner {
+  border: none; }
+
+sub, sup {
+  font-size: 0.8em; }
+
+blockquote {
+  color: #555555;
+  font-style: italic;
+  margin: 1.5em 0 1.5em -15px;
+  width: 75%; }
+
+/** lists */
+ul {
+  list-style: none;
+  list-style-position: outside;
+  font-size: 1.2em;
+  font-weight: 400; }
+  ul li {
+    list-style-image: none;
+    list-style-type: none;
+    margin-left: 0px; }
+  ul li {
+    font-size: 0.8em;
+    font-weight: 100;
+    padding: 3px 5px;
+    border-top: 1px solid #eee; }
+    ul li:hover {
+      background: #f9f9f9; }
+
+#index ul, ul#menu {
+  width: 80%; }
+  #index ul li, ul#menu li {
+    display: inline;
+    float: left;
+    padding: 3px 10px 2px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    line-height: 2em;
+    background: #fff;
+    border: 1px solid #ddd;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0px 0px 5px #eeeeee;
+    -webkit-box-shadow: 0px 0px 5px #eeeeee;
+    -o-box-shadow: 0px 0px 5px #eeeeee;
+    box-shadow: 0px 0px 5px #eeeeee; }
+    #index ul li:hover, ul#menu li:hover {
+      background: #eee; }
+
+td {
+  position: relative;
+  padding: 3px; }
+
+textarea {
+  position: relative;
+  min-height: 60px;
+  max-width: 600px;
+  width: 600px;
+  border: 1px solid #333; }
+
+input {
+  position: relative; }
+
+input[type="text"] {
+  width: 600px;
+  border: 1px solid #333; }
+
+.errors, .messages-error {
+  background: #ffff00;
+  color: #ff0000; }
+
+.messages-success {
+  background: #66ff66;
+  color: #333333; }
+
+fieldset {
+  min-width: 700px;
+  width: auto !important;
+  width: 700px;
+  padding: 10px;
+  border: 1px dashed #aaa; }
+  fieldset legend {
+    padding: 10px;
+    font-size: 0.8em; }
+    fieldset legend a {
+      padding: 0 5px; }

@@ -1,0 +1,385 @@
+/**
+ * Created by olebedev.ru
+ * User: olebedev
+ * Date: 09.07.11
+ * Time: 14:02
+ */
+
+#fdbk_overlay {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000000;
+  position: absolute; }
+
+#fdbk_screen {
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  position: absolute;
+  background-color: black;
+  opacity: 0.45;
+  -moz-opacity: 0.45;
+  filter: alpha(opacity=45); }
+
+#fdbk_container {
+  width: 680px;
+  height: 640px;
+  margin: 0 auto;
+  z-index: 2;
+  position: relative; }
+  #fdbk_container iframe {
+    width: 658px;
+    height: 100%;
+    margin: 20px;
+    background: transparent; }
+  #fdbk_container iframe.loading {
+    background: transparent url(http://s3.amazonaws.com/getsatisfaction.com/images/fb_loading.png) no-repeat; }
+
+a#fdbk_tab {
+  top: 25%;
+  left: 0;
+  width: 42px;
+  height: 102px;
+  color: white;
+  cursor: pointer;
+  text-indent: -100000px;
+  overflow: hidden;
+  position: fixed;
+  z-index: 100000;
+  margin-left: -7px;
+  background-image: url(http://s3.amazonaws.com/getsatisfaction.com/images/feedback_trans_tab.png);
+  _position: absolute;
+  _background-image: url(http://s3.amazonaws.com/getsatisfaction.com/images/feedback_tab_ie6.png); }
+  a#fdbk_tab:hover {
+    margin-left: -4px; }
+
+a.fdbk_tab_right {
+  right: 0 !important;
+  left: auto !important;
+  margin-right: 0 !important;
+  margin-left: auto !important;
+  width: 35px !important; }
+  a.fdbk_tab_right:hover {
+    width: 38px !important;
+    margin-right: 0 !important;
+    margin-left: auto !important; }
+
+a.fdbk_tab_bottom {
+  top: auto !important;
+  bottom: 0 !important;
+  left: 20% !important;
+  height: 38px !important;
+  width: 102px !important;
+  background-position: 0 -102px !important;
+  margin-bottom: -7px !important;
+  margin-left: auto !important; }
+  a.fdbk_tab_bottom:hover {
+    margin-bottom: -4px !important;
+    margin-left: auto !important; }
+
+a.fdbk_tab_hidden {
+  display: none !important; }
+
+a#fdbk_close {
+  position: absolute;
+  cursor: pointer;
+  outline: none;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  width: 42px;
+  height: 42px;
+  overflow: hidden;
+  background-image: url(http://s3.amazonaws.com/getsatisfaction.com/images/feedback-close.png);
+  _background: none;
+  _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://s3.amazonaws.com/getsatisfaction.com/images/feedback-close.png', sizingMethod='crop'); }
+  a#fdbk_close:hover {
+    background-position: -42px 0; }
+
+.feedback_tab_on embed, .feedback_tab_on select, .feedback_tab_on object {
+  visibility: hidden; }
+
+
+
+
+
+body, html {
+			background: #444;
+			font-family: verdana, arial, sans-serif;
+			font-size: 12px;
+			color: #444;
+			background: #333;
+			padding: 0px;
+			margin: 0px;
+		}
+		.rounded {
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			padding: 5px;
+		}
+		div#toparea {
+			height: 70px;
+			background: #FFC77D;
+			margin: 10px;
+		}
+		#inputarea {
+			width: 200px;
+			float:left;
+			background: #DEC2FC;
+			margin: 5px 10px;
+		}
+		#inputarea textarea {
+			font-size: 12px;
+			border: 1px solid #706280;
+			background: #F0E3FF;
+			padding: 3px;
+			width: 198px;
+		}
+		#toolarea {
+			background: #555;
+			width: 50px;
+			height: 200px;
+			float:left;
+			margin: 5px 10px 0px 0px;
+			bottom: 10px;
+		}
+		#editarea {
+			margin: 5px;
+			bottom: 10px;
+			left: 300px;
+			position: absolute;
+			right: 10px;
+			top: 100px;
+			width: auto;
+			background: #fff;
+			padding: 5px 40px 10px 5px;
+			overflow: auto;
+		}
+		#editarea div {
+			margin-right: 20px;
+			font-family: courier;
+		}
+		#toparea h1 {
+			color: #333333;
+			float: right;
+			font-size: 50pt;
+			position: absolute;
+			top: 26px;
+			right: 8px;
+			margin: 0px;
+		}
+		div {
+			padding: 1px;
+			margin: 2px 2px 2px 2px;
+			/*border-radius: 5px;*/
+		}
+		#json_editor {
+			background: #fff;
+		}
+		#json_editor span {
+			margin: 2px;
+			padding:1px;
+		}
+		div[data-type="object"] {
+			border: 1px solid #fcc;
+			padding-bottom: 8px;
+		}
+		div[data-type="array"] {
+			border: 1px solid #ccf;
+			padding-bottom: 8px;
+		}
+		div[data-role="arrayitem"] > div  {
+			margin: 2px;
+		}
+		[data-type="string"] {
+			color: #4AA150;
+		}
+		pre {
+			display: inline;
+			margin: 2px;
+			font-family: courier;
+			white-space: pre-wrap;
+		}
+		[data-type="number"] {
+			color: #D67B13;
+		}
+		[data-type="null"] {
+			color: #919191;
+		}
+		[data-type="boolean"] {
+			color: #FA6B8F;
+		}
+		div[data-role="value"] {
+			margin-left: 20px;
+		}
+		div[data-role="prop"], div[data-role="arrayitem"] {
+			//border: 0px solid #ccf;
+			margin: 1px;
+			padding: 1px;
+			color: #4155A6;
+		}
+		span[data-role="key"] {
+			min-width:100px;
+		}
+		.edit_box {
+			display: inline-block;
+			padding: 0px;
+			margin: 0px;
+		}
+		.collapse_box {
+			font-size: 16pt;
+			color: #999;
+			padding: 0px;
+			margin: 0px;
+			cursor: pointer;
+		}
+		.dimmed {
+			opacity:0.4;filter:alpha(opacity=40);
+			background; #999;
+		}
+		#toolarea a {
+			color: #EDAF42;
+			text-decoration: none;
+			border: 1px solid #333;
+			width: 20px;
+			padding: 2px 10px;
+			margin: 2px 0px;
+			display: inline-block;
+			border-radius: 3px;
+			background: #666;
+		}
+		#toolarea a:hover {
+			background: A37931;
+			color: #444;
+		}
+
+
+      /* all context menus have this class */
+      .context-menu {
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+
+        background-color: #f2f2f2;
+        border: 1px solid #999;
+
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      .context-menu a {
+        display: block;
+        padding: 3px;
+        text-decoration: none;
+        color: #333;
+      }
+      .context-menu a:hover {
+        background-color: #666;
+        color: white;
+      }
+	/* Z-index of #mask must lower than #boxes .window */
+	#mask {
+		position:absolute;
+		z-index:9000;
+		background-color:#000;
+		display:none;
+		top: 0px;
+		bottom: 0px;
+		right: 0px;
+		left:0px;
+	}
+	#boxes .window {
+		position:absolute;
+		width:440px;
+		height:200px;
+		display:none;
+		z-index:9999;
+		padding:20px;
+	}
+	#dialog a.close {
+		color: #EDAF42;
+		text-decoration: none;
+		border: 1px solid #333;
+		padding: 2px 10px;
+		margin: 2px 0px;
+		display: inline-block;
+		border-radius: 3px;
+		background: #666;
+		float:right
+	}
+	#dialog a.close:hover {
+		background: A37931;
+		color: #444;
+	}
+
+	#past_ws {
+		height: 168px;
+		overflow: auto;
+	}
+	/* Customize your modal window here, you can add background image too */
+	#boxes #dialog {
+		width:375px;
+		height:203px;
+		background: #fff;
+	}
+	div[data-type="object"] > div.inline_add_box {
+		border: 1px solid #fcc;
+	}
+	div[data-type="array"] > div.inline_add_box {
+		border: 1px solid #ccf;
+	}
+	div.inline_add_box {
+		margin: 5px;
+		border-radius: 0px;
+		background: #ffff00;
+		min-width: 20px;
+		color: #AAA;
+		text-align: center;
+		padding: 0px;
+		font-family: Verdana !important;
+		font-size: 9px;
+		float: right;
+		position: absolute;
+        z-index:5;
+		border: 1px solid;
+		min-height: 4px;
+		max-height: 26px;
+		overflow: hidden;
+	}
+	div.inline_add_box a {
+		color: #7aa;
+		font-size: 16px;
+		cursor: pointer;
+		text-decoration: none;
+	}
+	div.inline_add_box a:hover {
+		color: #366;
+	}
+	div.add_box_content {
+		display: none;
+		padding: 0px;
+		margin: 2px;
+		padding-left: 5px;
+		text-align: center;
+		cursor: default;
+        position:relative;
+        z-index:6;
+	}
+
+.jsonable{
+    height: 24px;
+    min-height: 24px;
+    background: #eeeeee;
+}
+.butt {
+    display:inline-block;
+    padding:3px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    min-width: 50px;
+    text-align: center;
+    margin: 20px 0;
+}

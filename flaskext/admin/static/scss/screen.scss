@@ -1,0 +1,136 @@
+/**
+ * Created by olebedev.ru
+ * User: olebedev
+ * Date: 09.07.11
+ * Time: 14:02
+ */
+
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/layout";
+@import "compass/typography";
+@import "compass/utilities";
+@import "base";
+
+html, body {
+    background:$body-bg-color; color:$font-color;
+    padding: 20px;
+    }
+body {
+    font: 100 100% Helvetica, Arial, sans-serif;
+    position:absolute;
+    }
+
+h1, h2, h3, h4, h5, h6 { font-weight: 300; }
+
+h1 { @include text_style(3em,$font-color,100,left,0); line-height:1em;}
+h2 { @include text_style(2em,lighten($font-color, 13.33%),200,left,-0.03em); margin-bottom:0.2em; }
+h3 { @include text_style(1.5em,lighten($font-color, 13.33%),300,left,-0.03em); }
+
+p { @include text_style(1em,lighten($font-color, 25%),200,left,0); margin-top:0; }
+
+//link-colors($normal, $hover, $active, $visited, $focus)
+a {
+    @include link-colors($link-color, $link-hover-color, $link-active-color, $link-visited-color, $link-focus-color);
+    text-decoration:none;
+}
+//color: #69c; text-decoration: none;}
+//a:hover { color: #900; outline-style: none; }
+//a, :focus { outline: none; }
+button:hover {outline-style: none;}
+button::-moz-focus-inner {border:none;}
+input[type="submit"]::-moz-focus-inner {border:none;}
+
+sub, sup { font-size:0.8em; }
+
+blockquote {
+    color:lighten($font-color, 13.33%);;
+    font-style:italic;
+    margin:1.5em 0 1.5em -15px;
+    width:75%;
+    }
+
+/** lists */
+ul {
+    @include no-bullets(); list-style-position:outside;
+    font: {
+        size: 1.2em;
+        weight: 400;
+    }
+    li {
+        font: {
+            size: 0.8em;
+            weight: 100;
+        }
+        padding: 3px 5px;
+        border-top: 1px solid #eee;
+        &:hover {background: #f9f9f9; }
+    }
+}
+
+#index ul, ul#menu {
+    width: 80%;
+    li {
+        @include float(left);
+        padding: 3px 10px 2px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        line-height: 2em;
+        background:#fff;
+        border: 1px solid #ddd;
+        @include border-radius();
+        @include single-box-shadow(#eee);
+        &:hover { background: #eee; }
+    }
+}
+
+td {
+    position:relative;
+    padding: 3px;
+}
+textarea {
+    position:relative;
+    min-height:60px;
+    max-width: 600px;
+    width: 600px;
+    border: 1px solid #333;
+}
+input {
+    position:relative;
+
+}
+input[type="text"] {
+    width: 600px;
+    border: 1px solid #333;
+}
+.errors, .messages-error {
+    background: #ffff00;
+    color: #ff0000;
+}
+
+.messages-success {
+    background: #66ff66;
+    color: #333333;
+}
+
+fieldset {
+    @include min-width(700px);
+    padding: 10px;
+    border: 1px dashed #aaa;
+
+    legend {
+        padding: 10px;
+        font-size: 0.8em;
+        a {
+            padding: 0 5px;
+        }
+    }
+}
+
+#main {
+    ul {
+        li {
+        }
+    }
+
+}

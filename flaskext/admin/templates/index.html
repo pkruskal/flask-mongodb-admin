@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}индекс{% endblock %}
+{% block body %}
+<div id="index"><h2>Список моделей:</h2><ul>
+    {% for k,v in models.items() %}
+        <li>
+            <a href="{{ url_for('admin.list/model', model=k) }}">{{ v.__name__ }}</a> ({{ v.query.count() }})
+        </li>
+    {% endfor %}
+
+</ul></div>
+{% endblock %}

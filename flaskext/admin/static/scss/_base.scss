@@ -1,0 +1,88 @@
+//
+$page-width     : 980px;
+$total-columns  : 10;
+$grid-margin    : 10px;
+$column-width : ( $page-width + $grid-margin) / $total-columns - $grid-margin;
+$content-width : 620px;
+
+$grid-background-total-columns   : $total-columns;
+$grid-background-gutter-width    : $grid-margin;
+$grid-background-column-width    : $column-width;
+$grid-background-baseline-height : 1em;
+
+$window-left-pos: 50%;
+$window-top-pos: 80px;
+$window-width : 560px;
+
+// Colors define
+$c-blue: #69c;
+$c-purple: #F32265;
+$c-orange: #e39311;
+
+$c-green: #406618;
+$c-red: #A61744;
+
+// Old
+.untrack {background:$c-blue;}
+
+// general colors
+$font-color: #333333;
+//$quiet-color: lighten($font-color, 20%);
+//$loud-color: darken($font-color, 13.33%);
+//$header-color: darken($font-color, 6.67%);
+//$alt-text-color: #666666;
+//$blueprint-background-color: #eeeeee;
+//$blueprint-border-color: #dddddd;
+$link-color: #0066cc;
+$link-hover-color: #0099ff;
+$link-focus-color: $link-hover-color;
+$link-active-color: lighten(adjust-hue($link-color, 75deg), 10%);
+$link-visited-color: darken($link-color, 10%);
+//$feedback-border-color: #dddddd;
+//$success-color: #264409;
+//$success-bg-color: #e6efc2;
+//$success-border-color: #c6d880;
+//$notice-color: #514721;
+//$notice-bg-color: #fff6bf;
+//$notice-border-color: #ffd324;
+//$info-color: #205791;
+$attention-red-color: $c-purple;
+$right-col-bg-color:  #eee;
+$body-bg-color : #f9f9f9;
+$content-bg-color : #fff;
+$sbr-bg-color: #F1EEE7 url(/static/i/sbr_shadow.png) repeat-y;
+$shadow-color: #111;
+$window-bg-color:#eae8df;
+$window-border-color:#222;
+
+$question-color : $link-color; //#0054a6;
+$question-color-hover: $link-hover-color; //#C02C08;
+$test-answer-bg-color:#dfebcd;
+$wizard-color: #faf3e2;
+$wizard-bg: $wizard-color url(/static/i/wizard-bg.jpg) no-repeat;
+$battle-bg: #fbf2ed;
+
+$yellow-bg: #FFF9E3;
+$yellow-bg-border: 1px solid #F0EAD6;
+
+$font-family: "Helvetica", sans-serif;
+
+@mixin text_style($fontsize,$color,$weight,$talign,$letterspacing) {
+    font: {
+        size:$fontsize;
+        weight:$weight;
+    }
+    color:$color;
+    text-align:$talign;
+    letter-spacing:$letterspacing; }
+
+@function span($n,$padding) {
+  @return $column-width * $n + $grid-margin * ($n - 1) - $padding; }
+
+@mixin container {
+  width: $page-width;
+  margin: 0 auto;
+  @include clearfix; }
+
+@mixin span($n,$padding:0) {
+  width: span($n,$padding); }

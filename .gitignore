@@ -1,0 +1,15 @@
+
+*.coverage
+*.egg-info
+*.egg
+*.log
+*.pyc
+*.db
+*.swp
+*.swo
+*.zip
+*.orig
+*.cfg
+*.tox
+
+*~

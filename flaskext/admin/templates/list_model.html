@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}список данных модели {{ m.__name__ }} model{% endblock %}
+{% block body %}
+<fieldset>
+<legend>Меню</legend>
+<ul id="menu">
+    <li>
+        <a href="{{ url_for('admin.index') }}">Индекс</a>
+    </li>
+</ul>
+</fieldset>
+<fieldset>
+<legend>Список объектов модели {{ m.__name__ }}: <span>
+    [<a href="{{ url_for('admin.add/one', model=m.__name__.lower()) }}">добавить</a>]
+</span></legend>
+
+<ul>
+    {% for i in queryset.items %}
+        <li>
+            <a href="{{ url_for('admin.view/one', model=m.__name__.lower(), id=i.mongo_id) }}">{{ i.__unicode__()|safe }}</a> [
+                <a style="color: #E60053" onclick="return confirm('Удалить \'{{ i.__unicode__()|safe }}\'? O_o');" href="{{ url_for('admin.delete', model=m.__name__.lower(), id=i.mongo_id) }}">удалить</a>
+            ]
+        </li>
+    {% endfor %}
+<div id="paginate">
+    {% if queryset.has_prev() %}
+        <a href="{{ url_for('admin.list/model', model=m.__name__.lower()) }}?p={{ queryset.prev_num }}">
+            page {{ queryset.prev_num }}
+        </a>
+    {% endif %}
+    {% if queryset.has_next() %}
+        <a href="{{ url_for('admin.list/model', model=m.__name__.lower()) }}?p={{ queryset.next_num }}">
+            page {{ queryset.next_num }}
+        </a>
+    {% endif %}
+</div>
+
+
+</ul>
+</fieldset>
+{% endblock %}
